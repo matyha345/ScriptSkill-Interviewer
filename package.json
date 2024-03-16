@@ -1,0 +1,21 @@
+{
+  "name": "frontend-interview-bot",
+  "version": "1.0.0",
+  "description": "Itnerview-bot-JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Nikolas&&Nikolay",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "grammy": "^1.21.1",
+    "nodemon": "^3.1.0",
+    "random-js": "^2.1.0"
+  },
+  "devDependencies": {
+    "prettier": "3.2.5"
+  }
+}
