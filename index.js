@@ -42,6 +42,8 @@ bot.hears(['HTML', 'CSS', 'JavaScript', 'React'], async ctx => {
 	const question = getRandomQuestion(topic)
 
 	let inlineKeyboard
+	let replyOptions
+
 
 	// Создание inline клавиатуры для вопроса
 	if (question.hasOptions) {
@@ -69,11 +71,23 @@ bot.hears(['HTML', 'CSS', 'JavaScript', 'React'], async ctx => {
 		)
 	}
 
+	if (question.image) {
+		replyOptions = ctx.replyWithPhoto(question.image, {
+			reply_markup: inlineKeyboard
+		})
+	} else {
+		replyOptions = ctx.reply(question.text, {
+			reply_markup: inlineKeyboard
+		})
+	}
+
 	// Отправка вопроса с клавиатурой
-	await ctx.reply(question.text, {
-		reply_markup: inlineKeyboard
-	})
+	await replyOptions
 })
+
+bot.on('message:text', async (ctx) => {
+    await ctx.reply("Команда неизвестна. Пожалуйста, перезапустите бота с помощью команды /start.");
+});
 
 // Обработка нажатий на inline клавиатуру
 bot.on('callback_query:data', async ctx => {
@@ -97,6 +111,8 @@ bot.on('callback_query:data', async ctx => {
 
 		// Создаем inline клавиатуру для нового вопроса
 		let inlineKeyboard
+		let replyOptions
+
 		if (nextQuestion.hasOptions) {
 			const buttonRows = nextQuestion.options.map(option => {
 				return [
@@ -122,9 +138,18 @@ bot.on('callback_query:data', async ctx => {
 		}
 		await ctx.reply('---👆Ответ👆--- \n \n---👇Новый вопрос👇---')
 		// Отправляем следующий вопрос
-		await ctx.reply(nextQuestion.text, {
-			reply_markup: inlineKeyboard
-		})
+
+		if (nextQuestion.image) {
+			replyOptions = ctx.replyWithPhoto(nextQuestion.image, {
+				reply_markup: inlineKeyboard
+			})
+		} else {
+			replyOptions = ctx.reply(nextQuestion.text, {
+				reply_markup: inlineKeyboard
+			})
+		}
+
+		await replyOptions
 
 		await ctx.answerCallbackQuery()
 		return
@@ -138,6 +163,8 @@ bot.on('callback_query:data', async ctx => {
 
 		// Создаем inline клавиатуру для нового вопроса
 		let inlineKeyboard
+		let replyOptions
+
 		if (nextQuestion.hasOptions) {
 			const buttonRows = nextQuestion.options.map(option => {
 				return [
@@ -163,9 +190,18 @@ bot.on('callback_query:data', async ctx => {
 		}
 		await ctx.reply('---👆Ответ👆--- \n \n---👇Новый вопрос👇---')
 		// Отправляем следующий вопрос
-		await ctx.reply(nextQuestion.text, {
-			reply_markup: inlineKeyboard
-		})
+
+		if (nextQuestion.image) {
+			replyOptions = ctx.replyWithPhoto(nextQuestion.image, {
+				reply_markup: inlineKeyboard
+			})
+		} else {
+			replyOptions = ctx.reply(nextQuestion.text, {
+				reply_markup: inlineKeyboard
+			})
+		}
+
+		await replyOptions
 
 		await ctx.answerCallbackQuery()
 		return
