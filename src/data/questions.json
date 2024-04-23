@@ -438,7 +438,7 @@
 		},
 		{
 			"id": 15,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/qustion-margin.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/qustion-margin.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{ "id": 1, "text": "10px", "isCorrect": false },
@@ -451,11 +451,11 @@
 			"id": 16,
 			"text": "В чем разница между em и rem?",
 			"hasOptions": false,
-			"answer": "EM устанавливает размер относительно размера шрифта родительского элемента, в то время как rem устанавливает размер относительно размера шрифта корневого элемента (обычно это размер шрифта элемента <html>)."
+			"answer": "EM устанавливает размер относительно размера шрифта родительского элемента, в то время как rem устанавливает размер относительно размера шрифта корневого элемента (обычно это размер шрифта элемента html)."
 		},
 		{
 			"id": 17,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/element.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/element.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{
@@ -508,7 +508,7 @@
 		},
 		{
 			"id": 20,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-grid.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/question-grid.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{ "id": 1, "text": "100px 350px 350px 300px", "isCorrect": false },
@@ -640,7 +640,7 @@
 		},
 		{
 			"id": 15,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-log.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/question-log.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{ "id": 1, "text": "false, false", "isCorrect": false },
@@ -651,7 +651,7 @@
 		},
 		{
 			"id": 16,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/setTimeou-fun.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/setTimeou-fun.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{ "id": 1, "text": "3, 2, 1", "isCorrect": false },
@@ -662,7 +662,7 @@
 		},
 		{
 			"id": 17,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-object.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/question-object.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{ "id": 1, "text": "Uncaught TypeError: Cannot read properties of undefined", "isCorrect": true },
@@ -687,11 +687,11 @@
 			"id": 20,
 			"text": "Какими способами можно очистить массив?",
 			"hasOptions": false,
-			"answer": "let arrayList = L'hi', 'there', '!'];  Если вы хотите просто удалить все элементы из массива и оставить пустой массив, вы можете просто присвоить ему новый пустой массив: arrayList = []; Использование метода splice(): Метод splice() может использоваться для удаления элементов из массива путем изменения его содержимого: arrayList.splice(0, arrayList.length); Присваивание длины массива: Вы также можете присвоить свойству length массива значение 0, чтобы удалить все его элементы: arrayList.length = 0; "
+			"answer": "🪶let arrayList = L'hi', 'there', '!'];🪶  Если вы хотите просто удалить все элементы из массива и оставить пустой массив, вы можете просто присвоить ему новый пустой массив: arrayList = []; 🪶Использование метода splice(): Метод splice() может использоваться для удаления элементов из массива путем изменения его содержимого: arrayList.splice(0, arrayList.length); 🪶Присваивание длины массива: Вы также можете присвоить свойству length массива значение 0, чтобы удалить все его элементы: arrayList.length = 0; "
 		},
 		{
 			"id": 21,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-windows.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/question-windows.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{ "id": 1, "text": "undefined", "isCorrect": false },
@@ -702,7 +702,7 @@
 		},
 		{
 			"id": 22,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-for.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/question-for.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{ "id": 1, "text": "0, 1, 2", "isCorrect": false },
@@ -713,7 +713,7 @@
 		},
 		{
 			"id": 23,
-			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-bot.png?raw=true",
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/main/public/question-bot.png?raw=true",
 			"hasOptions": true,
 			"options": [
 				{ "id": 1, "text": "undefined", "isCorrect": false },
