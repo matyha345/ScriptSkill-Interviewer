@@ -446,6 +446,76 @@
 				{ "id": 3, "text": "20px", "isCorrect": true },
 				{ "id": 4, "text": "10px", "isCorrect": false }
 			]
+		},
+		{
+			"id": 16,
+			"text": "В чем разница между em и rem?",
+			"hasOptions": false,
+			"answer": "EM устанавливает размер относительно размера шрифта родительского элемента, в то время как rem устанавливает размер относительно размера шрифта корневого элемента (обычно это размер шрифта элемента <html>)."
+		},
+		{
+			"id": 17,
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/element.png?raw=true",
+			"hasOptions": true,
+			"options": [
+				{
+					"id": 1,
+					"text": "К элементам, у которых есть соседи",
+					"isCorrect": false
+				},
+				{
+					"id": 2,
+					"text": "Ко всем элементам на странице",
+					"isCorrect": false
+				},
+				{
+					"id": 3,
+					"text": "Ко всем элементам, у которых есть потомки",
+					"isCorrect": false
+				},
+				{ "id": 4, "text": "Ко всем дочерним элементам", "isCorrect": true }
+			]
+		},
+		{
+			"id": 18,
+			"text": "Как можно центрировать элементы?",
+			"hasOptions": true,
+			"options": [
+				{
+					"id": 1,
+					"text": "justify-content: center u align-items: center",
+					"isCorrect": true
+				},
+				{ "id": 2, "text": "transform: position(center)", "isCorrect": false },
+				{ "id": 3, "text": "position: center center", "isCorrect": false },
+				{
+					"id": 4,
+					"text": "vertical-align: middle, horizontal-align: center",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"id": 19,
+			"text": "Какой синтаксис используется для задания CSS переменной variable-пате со значением 10рх?",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "--variable-name: 10px", "isCorrect": true },
+				{ "id": 2, "text": "var variable-name = '10px'", "isCorrect": false },
+				{ "id": 3, "text": "-variable-name: var(10px)", "isCorrect": false },
+				{ "id": 4, "text": "$variable-name = 10px", "isCorrect": false }
+			]
+		},
+		{
+			"id": 20,
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-grid.png?raw=true",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "100px 350px 350px 300px", "isCorrect": false },
+				{ "id": 2, "text": "100px 300px 300px 400px'", "isCorrect": true },
+				{ "id": 3, "text": "100px 400px 400px 200px", "isCorrect": false },
+				{ "id": 4, "text": "100px 500px 500px 100px", "isCorrect": false }
+			]
 		}
 	],
 	"javascript": [
@@ -567,6 +637,119 @@
 				{ "id": 3, "text": "reduce()", "isCorrect": false },
 				{ "id": 4, "text": "forEach()", "isCorrect": false }
 			]
+		},
+		{
+			"id": 15,
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-log.png?raw=true",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "false, false", "isCorrect": false },
+				{ "id": 2, "text": "true, true'", "isCorrect": false },
+				{ "id": 3, "text": "false, true", "isCorrect": true },
+				{ "id": 4, "text": "true, false", "isCorrect": false }
+			]
+		},
+		{
+			"id": 16,
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/setTimeou-fun.png?raw=true",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "3, 2, 1", "isCorrect": false },
+				{ "id": 2, "text": "1, 2, 3'", "isCorrect": true },
+				{ "id": 3, "text": " 2, 3, 1", "isCorrect": false },
+				{ "id": 4, "text": "Error", "isCorrect": false }
+			]
+		},
+		{
+			"id": 17,
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-object.png?raw=true",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "Uncaught TypeError: Cannot read properties of undefined", "isCorrect": true },
+				{ "id": 2, "text": "undefined", "isCorrect": false },
+				{ "id": 3, "text": "Hello", "isCorrect": false },
+				{ "id": 4, "text": "Bye", "isCorrect": false }
+			]
+		},
+		{
+			"id": 18,
+			"text": "Какими способами можно склеить два массива а=[1,2,3] и b=[4,5,6], чтобы получить с=[1,2,3,4,5,6]?",
+			"hasOptions": false,
+			"answer": "1: Метод concat(): Используйте метод concat() для объединения массивов. const a = [1, 2, 3]; const b = [4, 5, 6]; const c = a.concat(b); console.log(c); // [1, 2, 3, 4, 5, 6] 2: Оператор spread (...): Используйте оператор spread ..., чтобы распаковать элементы массивов в новый массив. const a = [1, 2, 3]; const b = [4, 5, 6]; const c = [...a, ...b]; console.log(c); // [1, 2, 3, 4, 5, 6]"
+		},
+		{
+			"id": 19,
+			"text": "Какими способами можно проверить наличие свойства пате в объекте user?",
+			"hasOptions": false,
+			"answer": "Object.keys(user).includes('name'): Возвращает массив строк, представляющих имена собственных перечисляемых свойств объекта. Метод includes() проверяет наличие элемента в массиве. user.hasOwnProperty('name'): Метод hasOwnProperty() объекта JavaScript возвращает логическое значение, указывающее, содержит ли объект указанное свойство в качестве собственного свойства."
+		},
+		{
+			"id": 20,
+			"text": "Какими способами можно очистить массив?",
+			"hasOptions": false,
+			"answer": "let arrayList = L'hi', 'there', '!'];  Если вы хотите просто удалить все элементы из массива и оставить пустой массив, вы можете просто присвоить ему новый пустой массив: arrayList = []; Использование метода splice(): Метод splice() может использоваться для удаления элементов из массива путем изменения его содержимого: arrayList.splice(0, arrayList.length); Присваивание длины массива: Вы также можете присвоить свойству length массива значение 0, чтобы удалить все его элементы: arrayList.length = 0; "
+		},
+		{
+			"id": 21,
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-windows.png?raw=true",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "undefined", "isCorrect": false },
+				{ "id": 2, "text": "Hello world!", "isCorrect": true },
+				{ "id": 3, "text": "Пустая строка", "isCorrect": false },
+				{ "id": 4, "text": "World hello!", "isCorrect": false }
+			]
+		},
+		{
+			"id": 22,
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-for.png?raw=true",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "0, 1, 2", "isCorrect": false },
+				{ "id": 2, "text": "1, 2, 3", "isCorrect": false },
+				{ "id": 3, "text": "3, 3, 3", "isCorrect": true },
+				{ "id": 4, "text": "undefined, 0, 1", "isCorrect": false }
+			]
+		},
+		{
+			"id": 23,
+			"image": "https://github.com/matyha345/ScriptSkill-Interviewer/blob/relict/public/question-bot.png?raw=true",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "undefined", "isCorrect": false },
+				{ "id": 2, "text": "Bot", "isCorrect": false },
+				{ "id": 3, "text": "B", "isCorrect": true },
+				{ "id": 4, "text": "Произойдет ошибка", "isCorrect": false }
+			]
+		},
+		{
+			"id": 24,
+			"text": "Какой метод массива используется для добавления элемента в начало массива?",
+			"hasOptions": true,
+			"options": [
+				{ "id": 1, "text": "pop", "isCorrect": false },
+				{ "id": 2, "text": "push", "isCorrect": false },
+				{ "id": 3, "text": "shift", "isCorrect": false },
+				{ "id": 4, "text": "unshift", "isCorrect": true }
+			]
+		},
+		{
+			"id": 25,
+			"text": "Какую структуру данных можно перебрать, используя конструкцию for...of ? Выберите все верные утверждения.",
+			"hasOptions": false,
+			"answer": "Конструкция for...of в JavaScript используется для перебора элементов итерируемых объектов. Итерируемый объект - это любой объект, который имеет метод [Symbol.iterator], возвращающий объект с методом next(), который последовательно возвращает все элементы структуры данных.  <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols' target='_blank'>for...of</a>"
+		},
+		{
+			"id": 26,
+			"text": "В чем разница между НТТР и HTTPS?",
+			"hasOptions": false,
+			"answer": "HTTP (Hypertext Transfer Protocol) передает данные без шифрования, в то время как HTTPS (Hypertext Transfer Protocol Secure) добавляет шифрование SSL/TLS для безопасной передачи данных. HTTPS также обеспечивает аутентификацию сервера."
+		},
+		{
+			"id": 27,
+			"text": "Как можно добавить обработчик клика на элемент, содержащийся в переменной button?",
+			"hasOptions": false,
+			"answer": "Чтобы добавить обработчик клика на элемент, содержащийся в переменной button, можно использовать метод addEventListener() для этого элемента. Вот пример:\n// Предположим, что переменная button содержит ссылку на элемент кнопки \nconst button = document.querySelector('#myButton'); // Пример: выбор кнопки по ее id\n// Добавляем обработчик клика на кнопку\n button.addEventListener('click', () => { // Ваше действие при клике на кнопку console.log('Клик по кнопке');});\n В этом примере мы выбираем кнопку с помощью querySelector() и добавляем к ней обработчик события click, который будет выполняться при каждом клике на кнопку."
 		}
 	],
 	"react": [
