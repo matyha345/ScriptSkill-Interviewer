@@ -1,6 +1,11 @@
-const { Keyboard, InlineKeyboard, GrammyError, HttpError } = require('grammy')
+const { Keyboard, GrammyError, HttpError } = require('grammy')
 
 const { getRandomQuestion, getCorrectAnswer } = require('../utils/utils')
+
+const {
+	createInlineKeyboard,
+	sendFormattedMessage
+} = require('../utils/replyUtils')
 
 const startCommandHandler = async ctx => {
 	const startKeyboard = new Keyboard()
@@ -19,59 +24,45 @@ const startCommandHandler = async ctx => {
 		reply_markup: startKeyboard
 	})
 }
+
+// Обработчик текстовых сообщений
 const messageTextHandler = async ctx => {
 	await ctx.reply(
 		'Команда неизвестна. Пожалуйста, перезапустите бота с помощью команды /start.'
 	)
 }
 
+// Обработчик выбора темы
 const topicHandler = async ctx => {
 	const topic = ctx.message.text.toLocaleLowerCase()
 	const question = getRandomQuestion(topic)
 
-	let inlineKeyboard
 	let replyOptions
 
-	// Создание inline клавиатуры для вопроса
-	if (question.hasOptions) {
-		const buttonRows = question.options.map(option => {
-			return [
-				InlineKeyboard.text(
-					option.text,
-					JSON.stringify({
-						type: `${topic} - option`,
-						isCorrect: option.isCorrect,
-						questionId: question.id
-					})
-				)
-			]
-		})
-
-		inlineKeyboard = InlineKeyboard.from(buttonRows)
-	} else {
-		inlineKeyboard = new InlineKeyboard().text(
-			'Получить ответ',
-			JSON.stringify({
-				type: topic,
-				questionId: question.id
-			})
-		)
-	}
+	// Создание клавиатуры и отправка вопроса
+	const inlineKeyboard = createInlineKeyboard(topic, question)
 
 	if (question.image) {
-		replyOptions = ctx.replyWithPhoto(question.image, {
-			reply_markup: inlineKeyboard
-		})
+		replyOptions = await sendFormattedMessage(
+			ctx,
+			question.image,
+			null,
+			inlineKeyboard
+		)
 	} else {
-		replyOptions = ctx.reply(question.text, {
-			reply_markup: inlineKeyboard
-		})
+		replyOptions = await sendFormattedMessage(
+			ctx,
+			null,
+			question.text,
+			inlineKeyboard
+		)
 	}
 
 	// Отправка вопроса с клавиатурой
 	await replyOptions
 }
 
+// Обработчик callback-запросов
 const callbackQueryHandler = async ctx => {
 	const callbackData = JSON.parse(ctx.callbackQuery.data)
 
@@ -88,47 +79,29 @@ const callbackQueryHandler = async ctx => {
 			disable_web_page_preview: true
 		})
 
-		// Выбираем следующий вопрос из той же темы
 		const nextQuestion = getRandomQuestion(currentTopic)
 
-		// Создаем inline клавиатуру для нового вопроса
-		let inlineKeyboard
 		let replyOptions
 
-		if (nextQuestion.hasOptions) {
-			const buttonRows = nextQuestion.options.map(option => {
-				return [
-					InlineKeyboard.text(
-						option.text,
-						JSON.stringify({
-							type: `${currentTopic} - option`,
-							isCorrect: option.isCorrect,
-							questionId: nextQuestion.id
-						})
-					)
-				]
-			})
-			inlineKeyboard = InlineKeyboard.from(buttonRows)
-		} else {
-			inlineKeyboard = new InlineKeyboard().text(
-				'Получить ответ',
-				JSON.stringify({
-					type: currentTopic,
-					questionId: nextQuestion.id
-				})
-			)
-		}
+		// Создание клавиатуры и отправка вопроса
+		const inlineKeyboard = createInlineKeyboard(currentTopic, nextQuestion)
+
 		await ctx.reply('---👆Ответ👆--- \n \n---👇Новый вопрос👇---')
-		// Отправляем следующий вопрос
 
 		if (nextQuestion.image) {
-			replyOptions = ctx.replyWithPhoto(nextQuestion.image, {
-				reply_markup: inlineKeyboard
-			})
+			replyOptions = await sendFormattedMessage(
+				ctx,
+				nextQuestion.image,
+				null,
+				inlineKeyboard
+			)
 		} else {
-			replyOptions = ctx.reply(nextQuestion.text, {
-				reply_markup: inlineKeyboard
-			})
+			replyOptions = await sendFormattedMessage(
+				ctx,
+				null,
+				nextQuestion.text,
+				inlineKeyboard
+			)
 		}
 
 		await replyOptions
@@ -137,50 +110,33 @@ const callbackQueryHandler = async ctx => {
 		return
 	}
 
+	// Обработка правильного ответа
 	if (callbackData.isCorrect) {
 		await ctx.reply('Верно 👌')
 
 		// Выбираем следующий вопрос из той же темы
 		const nextQuestion = getRandomQuestion(currentTopic)
 
-		// Создаем inline клавиатуру для нового вопроса
-		let inlineKeyboard
 		let replyOptions
 
-		if (nextQuestion.hasOptions) {
-			const buttonRows = nextQuestion.options.map(option => {
-				return [
-					InlineKeyboard.text(
-						option.text,
-						JSON.stringify({
-							type: `${currentTopic} - option`,
-							isCorrect: option.isCorrect,
-							questionId: nextQuestion.id
-						})
-					)
-				]
-			})
-			inlineKeyboard = InlineKeyboard.from(buttonRows)
-		} else {
-			inlineKeyboard = new InlineKeyboard().text(
-				'Получить ответ',
-				JSON.stringify({
-					type: currentTopic,
-					questionId: nextQuestion.id
-				})
-			)
-		}
+		// Создание клавиатуры и отправка вопроса
+		const inlineKeyboard = createInlineKeyboard(currentTopic, nextQuestion)
 		await ctx.reply('---👆Ответ👆--- \n \n---👇Новый вопрос👇---')
-		// Отправляем следующий вопрос
 
 		if (nextQuestion.image) {
-			replyOptions = ctx.replyWithPhoto(nextQuestion.image, {
-				reply_markup: inlineKeyboard
-			})
+			replyOptions = await sendFormattedMessage(
+				ctx,
+				nextQuestion.image,
+				null,
+				inlineKeyboard
+			)
 		} else {
-			replyOptions = ctx.reply(nextQuestion.text, {
-				reply_markup: inlineKeyboard
-			})
+			replyOptions = await sendFormattedMessage(
+				ctx,
+				null,
+				nextQuestion.text,
+				inlineKeyboard
+			)
 		}
 
 		await replyOptions
@@ -189,6 +145,7 @@ const callbackQueryHandler = async ctx => {
 		return
 	}
 
+	// Обработка неправильного ответа
 	const answer = getCorrectAnswer(currentTopic, currentQuestionId)
 	await ctx.reply(
 		`*Неверно*!!! ❌ \nЯ так и думал что ты Непись 🫵 \n*Правильный: ${answer}* 👀`,
@@ -197,7 +154,8 @@ const callbackQueryHandler = async ctx => {
 	await ctx.answerCallbackQuery()
 }
 
-const botErrorHandler = (err) => {
+// Обработчик ошибок бота
+const botErrorHandler = err => {
 	const ctx = err.ctx
 	console.error(`Error while handling update ${ctx.update.update_id}:`)
 	const e = err.error
