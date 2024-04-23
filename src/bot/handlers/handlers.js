@@ -86,7 +86,7 @@ const callbackQueryHandler = async ctx => {
 		// Создание клавиатуры и отправка вопроса
 		const inlineKeyboard = createInlineKeyboard(currentTopic, nextQuestion)
 
-		await ctx.reply('---👆Ответ👆--- \n \n---👇Новый вопрос👇---')
+		await ctx.reply('---👇Новый вопрос👇---')
 
 		if (nextQuestion.image) {
 			replyOptions = await sendFormattedMessage(
@@ -121,7 +121,7 @@ const callbackQueryHandler = async ctx => {
 
 		// Создание клавиатуры и отправка вопроса
 		const inlineKeyboard = createInlineKeyboard(currentTopic, nextQuestion)
-		await ctx.reply('---👆Ответ👆--- \n \n---👇Новый вопрос👇---')
+		await ctx.reply('---👇Новый вопрос👇---')
 
 		if (nextQuestion.image) {
 			replyOptions = await sendFormattedMessage(
