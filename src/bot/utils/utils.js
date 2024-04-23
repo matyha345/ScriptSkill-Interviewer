@@ -1,37 +1,8 @@
-// Импорт вопросов из JSON файла
-const questions = require('./questions.json')
-
 // Импорт модуля Random из библиотеки random-js
 const { Random } = require('random-js')
 
-
-// TODO: это функция линейной отдачи !!!!!
-
-// let questionIndex = 0 // Глобальная переменная для отслеживания индекса текущего вопроса
-
-// const getNextQuestionIndex = topic => {
-// 	// Если список вопросов для данной темы пуст, возвращаем -1
-// 	if (!questions[topic] || questions[topic].length === 0) {
-// 		return -1
-// 	}
-// 	// Увеличиваем индекс на 1 и берем остаток от деления на длину списка вопросов,
-// 	// чтобы обеспечить зацикленное получение вопросов
-// 	questionIndex = (questionIndex + 1) % questions[topic].length
-// 	return questionIndex
-// }
-
-
-
-// const getRandomQuestion = topic => {
-// 	// Получаем индекс следующего вопроса
-// 	const nextIndex = getNextQuestionIndex(topic)
-// 	// Получаем вопрос по индексу
-// 	return questions[topic][nextIndex]
-// }
-
-
-// TODO: это функция линейной отдачи !!!!!
-
+// Импорт вопросов из JSON файла
+const questions = require('../../data/questions.json')
 
 // Функция для получения случайного вопроса по заданной теме
 const getRandomQuestion = topic => {
